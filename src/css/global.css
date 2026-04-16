@@ -262,3 +262,124 @@ ul {
   transition: opacity 0.2s;
   text-decoration: underline;
 }
+
+/* =========================
+   CONTENEDOR DE BARRA LATERAL
+   ========================= */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* =========================
+   CAJA DE BOLETÍN
+   ========================= */
+.newsletter-box {
+  background: #f7f7f7;
+  border-radius: 12px;
+  padding: 28px 22px;
+}
+
+.newsletter-box__title {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #111;
+  margin: 0 0 8px;
+  text-align: center;
+}
+
+.newsletter-box__sub {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.4;
+  color: #8b8b8b;
+  margin: 0 0 18px;
+  text-align: center;
+}
+
+.newsletter-box__form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.newsletter-box__input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #e4e4e4;
+  border-radius: 6px;
+  padding: 0 12px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: #111;
+  background: #fff;
+  outline: none;
+}
+
+.newsletter-box__input::placeholder {
+  color: #a7a7a7;
+}
+
+.newsletter-box__input:focus {
+  border-color: #cfcfcf;
+}
+
+.newsletter-box__btn {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 6px;
+  background: #111;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+.newsletter-box__btn:hover {
+  background: #2a2a2a;
+}
+/* =========================
+   CATEGORÍAS (FONDO BLANCO)
+   ========================= */
+.sidebar__widget {
+  background: #fff;
+}
+
+/* línea separadora */
+.sidebar__widget-title {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 14px;
+  padding-top: 18px;
+}
+
+.category-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.category-list__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: #555;
+}
+
+.category-list__count {
+  color: #999;
+}
+
