@@ -20,6 +20,9 @@ Este proyecto es un clon del sitio web mostrado en el enunciado de la tarea 1, d
 ![Comparativa Original vs Clon](./src/assets/images/clon.png)
 
 _En la imagen superior se muestra el sitio original, y abajo el resultado del clon desarrollado._
+![Comparativa Original vs Clon](./src/assets/images/ResultadoClon1.png)
+![Comparativa Original vs Clon](./src/assets/images/ResultadoClon2.png)
+![Comparativa Original vs Clon](./src/assets/images/ResultadoClon3.png)
 
 ## Tecnologías Utilizadas
 
