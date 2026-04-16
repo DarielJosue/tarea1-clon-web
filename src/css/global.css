@@ -194,3 +194,71 @@ ul {
   margin-top: 6px;
   font-weight: 400;
 }
+
+/* ================================================
+   SECCIÓN 2 — DESTACADO
+   ================================================ */
+.section-feature {
+  display: grid;
+  max-height: 500px;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--gap);
+  margin-top: 48px;
+  align-items: start;
+}
+
+/* Tarjeta destacada */
+.card--feature {
+  display: flex;
+  flex-direction: column;
+}
+
+.card__img-wrap--feature {
+  width: 100%;
+  height: 260px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.card__body {
+  padding: 20px 22px 22px;
+}
+
+.card__title--feature {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 10px 0 8px;
+  line-height: 1.2;
+}
+
+.card__meta {
+  font-size: 13px;
+  color: var(--gray-light);
+  margin-bottom: 12px;
+  font-weight: 400;
+}
+
+.card__meta strong {
+  font-weight: 600;
+  color: var(--gray);
+}
+
+.card__excerpt {
+  font-size: 15px;
+  color: var(--gray);
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+
+.card__link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gray-light);
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: opacity 0.2s;
+  text-decoration: underline;
+}
