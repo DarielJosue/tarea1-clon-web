@@ -1,0 +1,601 @@
+/* ================================================
+   VARIABLES Y RESET
+   ================================================ */
+:root {
+  --primary: #111111;
+  --white: #ffffff;
+  --gray: #555555;
+  --gray-light: #888888;
+  --bg-light: #f5f5f5;
+  --border: #e8e8e8;
+
+  /* Colores de categoría */
+  --lifestyle: #6d41d9;
+  --health: #e84545;
+  --gaming: #f5a623;
+
+  /* Tipografía */
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+
+  /* Diseño */
+  --container-w: 1200px;
+  --gap: 24px;
+  --radius: 12px;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--white);
+  color: var(--primary);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ================================================
+   CONTENEDOR
+   ================================================ */
+.container {
+  max-width: var(--container-w);
+  margin: 0 auto;
+  padding: 0 20px 60px;
+}
+
+/* ================================================
+   ETIQUETA / ETIQUETA DE CATEGORÍA
+   ================================================ */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+
+  padding: 4px 9px;
+  min-height: 24px;
+
+  border-radius: 6px;
+  color: var(--white);
+  margin-bottom: 8px;
+
+  position: relative;
+  z-index: 1;
+  line-height: 1;
+}
+.badge::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: skew(-10deg);
+  z-index: -1;
+}
+.badge--lifestyle::before {
+  background-color: var(--lifestyle);
+}
+
+.badge--health::before {
+  background-color: var(--health);
+}
+
+.badge--gaming::before {
+  background-color: var(--gaming);
+}
+
+.badge--travel::before {
+  background-color: var(--travel);
+}
+.badge--travel {
+  color: rgb(122, 245, 122);
+}
+/* ================================================
+   BASE DE TARJETA
+   ================================================ */
+.card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--white);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.13);
+}
+
+/* ================================================
+   SECCIÓN 1 — TOP 3 TARJETAS (estilo superpuesto)
+   ================================================ */
+.section-top {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
+  margin-top: 48px;
+}
+
+/* Tarjeta superpuesta */
+.card--overlay {
+  position: relative;
+  height: 340px;
+}
+
+.card--overlay .card__img-wrap {
+  position: absolute;
+  inset: 0;
+}
+
+.card__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 18px 18px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.72) 0%,
+    rgba(0, 0, 0, 0.38) 55%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+
+.card__title {
+  font-family: var(--font-serif);
+  line-height: 1.2;
+  color: var(--primary);
+}
+
+.card__title--lg {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--white);
+  max-width: 90%;
+}
+
+.card__sub {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: 6px;
+  font-weight: 400;
+}
+
+/* ================================================
+   SECCIÓN 2 — DESTACADO
+   ================================================ */
+.section-feature {
+  display: grid;
+  max-height: 500px;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--gap);
+  margin-top: 48px;
+  align-items: start;
+}
+
+/* Tarjeta destacada */
+.card--feature {
+  display: flex;
+  flex-direction: column;
+}
+
+.card__img-wrap--feature {
+  width: 100%;
+  height: 260px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.card__body {
+  padding: 20px 22px 22px;
+}
+
+.card__title--feature {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 10px 0 8px;
+  line-height: 1.2;
+}
+
+.card__meta {
+  font-size: 13px;
+  color: var(--gray-light);
+  margin-bottom: 12px;
+  font-weight: 400;
+}
+
+.card__meta strong {
+  font-weight: 600;
+  color: var(--gray);
+}
+
+.card__excerpt {
+  font-size: 15px;
+  color: var(--gray);
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+
+.card__link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gray-light);
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: opacity 0.2s;
+  text-decoration: underline;
+}
+
+/* =========================
+   CONTENEDOR DE BARRA LATERAL
+   ========================= */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* =========================
+   CAJA DE BOLETÍN
+   ========================= */
+.newsletter-box {
+  background: #f7f7f7;
+  border-radius: 12px;
+  padding: 28px 22px;
+}
+
+.newsletter-box__title {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #111;
+  margin: 0 0 8px;
+  text-align: center;
+}
+
+.newsletter-box__sub {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.4;
+  color: #8b8b8b;
+  margin: 0 0 18px;
+  text-align: center;
+}
+
+.newsletter-box__form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.newsletter-box__input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #e4e4e4;
+  border-radius: 6px;
+  padding: 0 12px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: #111;
+  background: #fff;
+  outline: none;
+}
+
+.newsletter-box__input::placeholder {
+  color: #a7a7a7;
+}
+
+.newsletter-box__input:focus {
+  border-color: #cfcfcf;
+}
+
+.newsletter-box__btn {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 6px;
+  background: #111;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+.newsletter-box__btn:hover {
+  background: #2a2a2a;
+}
+/* =========================
+   CATEGORÍAS (FONDO BLANCO)
+   ========================= */
+.sidebar__widget {
+  background: #fff;
+}
+
+/* línea separadora */
+.sidebar__widget-title {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 14px;
+  padding-top: 18px;
+}
+
+.category-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.category-list__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: #555;
+}
+
+.category-list__count {
+  color: #999;
+}
+
+/* ================================================
+   SECCIÓN 3 — CUADRÍCULA DE PUBLICACIONES + BARRA LATERAL
+   ================================================ */
+.section-posts {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--gap);
+  margin-top: 48px;
+  align-items: start;
+}
+
+/* Cuadrícula de publicaciones */
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--gap);
+}
+
+/* Tarjeta pequeña */
+.card--small {
+  display: flex;
+  flex-direction: column;
+}
+
+.card__img-wrap--small {
+  width: 100%;
+  height: 160px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.card--small .card__body {
+  padding: 14px 16px 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card__title--sm {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--primary);
+  line-height: 1.25;
+  margin-bottom: 8px;
+}
+
+.card__excerpt--sm {
+  font-size: 14px;
+  color: var(--gray);
+  line-height: 1.6;
+  margin-bottom: 10px;
+  flex: 1;
+}
+
+/* ================================================
+   BARRA LATERAL
+   ================================================ */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.sidebar__widget {
+  margin-bottom: 36px;
+}
+
+.sidebar__widget-title {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.01em;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+}
+
+/* Lista de categorías */
+.category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.category-list__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: var(--gray);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.category-list__item:hover .category-list__name {
+  color: var(--primary);
+}
+
+.category-list__name {
+  font-weight: 400;
+}
+
+.category-list__count {
+  font-weight: 600;
+  color: var(--gray-light);
+  font-size: 13px;
+}
+
+/* Publicaciones recientes */
+.recent-post {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.recent-post:last-child {
+  margin-bottom: 0;
+}
+
+.recent-post__img {
+  width: 64px;
+  height: 64px;
+  min-width: 64px;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.recent-post__info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.recent-post__title {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+  line-height: 1.4;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.recent-post__title:hover {
+  color: var(--gray);
+}
+
+.recent-post__date {
+  font-size: 12px;
+  color: var(--gray-light);
+  font-weight: 400;
+}
+
+/* ================================================
+   BOTÓN DE PIE DE PÁGINA
+   ================================================ */
+.footer-btn {
+  position: relative;
+  left: 280px;
+  margin-top: 52px;
+}
+
+.btn-load {
+  padding: 12px 28px;
+  background: var(--primary);
+  color: var(--white);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-load:hover {
+  background: #333;
+}
+
+/* ================================================
+   ZOOM AL PASAR EL RATÓN POR LA IMAGEN (sutil)
+   ================================================ */
+.card__img-wrap img {
+  transition: transform 0.4s ease;
+}
+
+.card:hover .card__img-wrap img {
+  transform: scale(1.04);
+}
+
+/* ================================================
+   RESPONSIVE (tableta básica)
+   ================================================ */
+@media (max-width: 900px) {
+  .section-top {
+    grid-template-columns: 1fr;
+  }
+
+  .section-feature,
+  .section-posts {
+    grid-template-columns: 1fr;
+  }
+
+  .posts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card--overlay {
+    height: 280px;
+  }
+}
