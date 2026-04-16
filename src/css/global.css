@@ -383,3 +383,219 @@ ul {
   color: #999;
 }
 
+/* ================================================
+   SECCIÓN 3 — CUADRÍCULA DE PUBLICACIONES + BARRA LATERAL
+   ================================================ */
+.section-posts {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--gap);
+  margin-top: 48px;
+  align-items: start;
+}
+
+/* Cuadrícula de publicaciones */
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--gap);
+}
+
+/* Tarjeta pequeña */
+.card--small {
+  display: flex;
+  flex-direction: column;
+}
+
+.card__img-wrap--small {
+  width: 100%;
+  height: 160px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.card--small .card__body {
+  padding: 14px 16px 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card__title--sm {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--primary);
+  line-height: 1.25;
+  margin-bottom: 8px;
+}
+
+.card__excerpt--sm {
+  font-size: 14px;
+  color: var(--gray);
+  line-height: 1.6;
+  margin-bottom: 10px;
+  flex: 1;
+}
+
+/* ================================================
+   BARRA LATERAL
+   ================================================ */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.sidebar__widget {
+  margin-bottom: 36px;
+}
+
+.sidebar__widget-title {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.01em;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+}
+
+/* Lista de categorías */
+.category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.category-list__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: var(--gray);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.category-list__item:hover .category-list__name {
+  color: var(--primary);
+}
+
+.category-list__name {
+  font-weight: 400;
+}
+
+.category-list__count {
+  font-weight: 600;
+  color: var(--gray-light);
+  font-size: 13px;
+}
+
+/* Publicaciones recientes */
+.recent-post {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.recent-post:last-child {
+  margin-bottom: 0;
+}
+
+.recent-post__img {
+  width: 64px;
+  height: 64px;
+  min-width: 64px;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.recent-post__info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.recent-post__title {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+  line-height: 1.4;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.recent-post__title:hover {
+  color: var(--gray);
+}
+
+.recent-post__date {
+  font-size: 12px;
+  color: var(--gray-light);
+  font-weight: 400;
+}
+
+/* ================================================
+   BOTÓN DE PIE DE PÁGINA
+   ================================================ */
+.footer-btn {
+  position: relative;
+  left: 280px;
+  margin-top: 52px;
+}
+
+.btn-load {
+  padding: 12px 28px;
+  background: var(--primary);
+  color: var(--white);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-load:hover {
+  background: #333;
+}
+
+/* ================================================
+   ZOOM AL PASAR EL RATÓN POR LA IMAGEN (sutil)
+   ================================================ */
+.card__img-wrap img {
+  transition: transform 0.4s ease;
+}
+
+.card:hover .card__img-wrap img {
+  transform: scale(1.04);
+}
+
+/* ================================================
+   RESPONSIVE (tableta básica)
+   ================================================ */
+@media (max-width: 900px) {
+  .section-top {
+    grid-template-columns: 1fr;
+  }
+
+  .section-feature,
+  .section-posts {
+    grid-template-columns: 1fr;
+  }
+
+  .posts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card--overlay {
+    height: 280px;
+  }
+}
